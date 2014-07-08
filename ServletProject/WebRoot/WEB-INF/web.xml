@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- Log4J配置 -->
+  <!-- start -->
+  <context-param>
+  	<param-name>log4jConfigLocation</param-name><!-- param-name 固定 -->
+  	<param-value>classpath:log4j.properties</param-value>
+  </context-param>
+  <listener><!-- 开启监听 -->
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+   </listener>
+  <!-- end -->
+  
+  <!-- spring整合struts -->
+  <!-- start -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name><!-- param-name 固定 -->
+  	<param-value>classpath:com/dean/web/spring/applicationContext.xml</param-value>
+  </context-param>
+  <listener><!-- 开启监听 -->
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <!-- end -->
+  
+  
+  <!-- struts整合Servlet 
+  	   通过ActionServlet转发action请求
+  -->
+  <servlet>
+  	<servlet-name>strutsServlet</servlet-name>
+  	<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+  	<init-param>
+  		<param-name>config</param-name>
+  		<param-value>/WEB-INF/struts-config/struts-action-config.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>strutsServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet单独测试 -->
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.dean.web.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/loginServlet/*</url-pattern>
+  </servlet-mapping>
+  
+  <jsp-config>
+  	<taglib>
+  		<taglib-uri>/WEB-INF/tags/struts-bean.tld</taglib-uri>
+  		<taglib-location>/WEB-INF/tags/struts-bean.tld</taglib-location>
+  	</taglib>
+  	<taglib>
+  		<taglib-uri>/WEB-INF/tags/struts-html.tld</taglib-uri>
+  		<taglib-location>/WEB-INF/tags/struts-html.tld</taglib-location>
+  	</taglib>
+  	<taglib>
+  		<taglib-uri>/WEB-INF/tags/struts-logic.tld</taglib-uri>
+  		<taglib-location>/WEB-INF/tags/struts-logic.tld</taglib-location>
+  	</taglib>
+  </jsp-config>
+</web-app>

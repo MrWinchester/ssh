@@ -1,0 +1,5 @@
+<jsp:directive.page language="java" pageEncoding="utf-8" 
+contentType="text/html; charset=utf-8" isELIgnored="false"/>
+<%@ taglib uri="/WEB-INF/tags/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/tags/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/tags/struts-logic.tld" prefix="logic" %>

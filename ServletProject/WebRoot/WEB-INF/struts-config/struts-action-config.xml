@@ -1,0 +1,15 @@
+<!DOCTYPE struts-config PUBLIC
+       "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+       "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="CodeTableForm" type="com.dean.web.beans.CodeTableForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/login" type="com.dean.web.controller.LoginAction"
+			    scope="request" name="CodeTableForm">
+			<forward name="success" path="/WEB-INF/success.jsp"></forward>
+		</action>
+	</action-mappings>
+</struts-config>
