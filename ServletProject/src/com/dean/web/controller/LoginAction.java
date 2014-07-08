@@ -32,6 +32,7 @@ public class LoginAction extends Action
 		CodeTableForm sform = (CodeTableForm)form;
 		StrUtils.writeLog
 			(this, "go into LoginAction|"+sform.getValue("name")+"|"+sform.getValue("password"));
+		System.out.println("test");
 		return mapping.findForward("success");
 	}
 	
