@@ -57,6 +57,7 @@
   	<url-pattern>/loginServlet/*</url-pattern>
   </servlet-mapping>
   
+  <!-- struts标签导入 -->
   <jsp-config>
   	<taglib>
   		<taglib-uri>/WEB-INF/tags/struts-bean.tld</taglib-uri>
