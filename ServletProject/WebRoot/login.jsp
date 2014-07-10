@@ -26,11 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <table>
     	<tr>
     		<td>name:</td>
-    		<td><input type="text" name="value(name)"/></td>
+    		<td><input type="text" name="user.id" value="wuchl"/></td>
     	</tr>
     	<tr>
     		<td>password:</td>
-    		<td><input type="text" name="value(password)"/></td>
+    		<td><input type="text" name="user.password" value="wuchl123"/></td>
     	</tr>
     	<tr>
     		<td colspan="2"><input type="submit" value="submit"/></td>

@@ -18,21 +18,57 @@
    </listener>
   <!-- end -->
   
-  <!-- spring整合struts -->
+  <!-- spring -->
   <!-- start -->
+  <!-- param-name 固定 -->
+  <!--  
   <context-param>
-  	<param-name>contextConfigLocation</param-name><!-- param-name 固定 -->
+  	<param-name>contextConfigLocation</param-name>
   	<param-value>classpath:com/dean/web/spring/applicationContext.xml</param-value>
   </context-param>
-  <listener><!-- 开启监听 -->
+  <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  -->
   <!-- end -->
   
+  
+  <!-- Spring mvc -->
+  <!-- start -->
+  <servlet>
+  	<servlet-name>spring</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:com/dean/web/spring/applicationContext*.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>spring</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- end -->
+  
+  <!-- 统一字符编码 -->
+  <filter>
+  	<filter-name>setCharacter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>setCharacter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
   <!-- struts整合Servlet 
   	   通过ActionServlet转发action请求
   -->
+  <!-- start -->
+  <!--
   <servlet>
   	<servlet-name>strutsServlet</servlet-name>
   	<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
@@ -46,8 +82,11 @@
   	<servlet-name>strutsServlet</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+    -->
+  <!-- end -->
   
   <!-- Servlet单独测试 -->
+  <!--  
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<servlet-class>com.dean.web.servlet.LoginServlet</servlet-class>
@@ -56,8 +95,10 @@
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/loginServlet/*</url-pattern>
   </servlet-mapping>
+  -->
   
   <!-- struts标签导入 -->
+  <!--  
   <jsp-config>
   	<taglib>
   		<taglib-uri>/WEB-INF/tags/struts-bean.tld</taglib-uri>
@@ -72,4 +113,5 @@
   		<taglib-location>/WEB-INF/tags/struts-logic.tld</taglib-location>
   	</taglib>
   </jsp-config>
+  -->
 </web-app>

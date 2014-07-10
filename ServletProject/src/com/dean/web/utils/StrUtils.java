@@ -24,4 +24,18 @@ public class StrUtils
 			log.error(obj.getClass().getName()+":"+msg);
 		}
 	}
+	
+	public static void writeLog(String msg)
+	{
+		if(log.isInfoEnabled())
+		{
+			log.info(msg);
+		}else if(log.isDebugEnabled())
+		{
+			log.debug(msg);
+		}else if(log.isErrorEnabled())
+		{
+			log.error(msg);
+		}
+	}
 }
